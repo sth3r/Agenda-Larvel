@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-        echo "oiiii";
-        echo 'n/ Essa é a users';
-        dd($this);
+        return view('users', ['users' => User::all()]);
+        // return response()->json(User::all());
     }
 }
