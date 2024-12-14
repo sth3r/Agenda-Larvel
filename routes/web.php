@@ -21,12 +21,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/au', function () {
-    echo 'auuuu';
-});
+// Route::get('/au', function () {
+//     echo 'auuuu';
+// });
+// Route::get('/au',[TarefaController::class,'index']);
 
-Route::get('/au',[TarefaController::class,'index']);
-Route::get('/tarefas',[TarefaController::class,'index']);
-Route::get('/tags',[TagController::class,'index']);
-Route::get('/anotacaos',[AnotacaoController::class,'index']);
+Route::get('tarefas',[TarefaController::class,'index']);
+Route::get('tarefa/{id}',[TarefaController::class,'show']);
+
+
+Route::get('tags',[TagController::class,'index']);
+Route::get('tag/{id}',[TagController::class,'show']);
+
+
+Route::get('anotacaos',[AnotacaoController::class,'index']);
+Route::get('anotacao/{id}',[AnotacaoController::class,'show']);
+
+
 Route::get('/users',[UserController::class,'index']);
