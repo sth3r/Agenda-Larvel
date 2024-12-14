@@ -12,7 +12,7 @@ class AnotacaoController extends Controller
     //    return response()->json(Anotacao::all());
         // return view('anotacao.index', ['anotacaos'=>Anotacao::all()]);
 
-        return view('anotacaos', ['anotacaos' => Anotacao::all()]);
+        return view('anotacaos.index', ['anotacaos' => Anotacao::all()]);
         // return response()->json(Anotacao::all());
 
     }

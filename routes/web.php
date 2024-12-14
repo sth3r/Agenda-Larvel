@@ -27,6 +27,6 @@ Route::get('/au', function () {
 
 Route::get('/au',[TarefaController::class,'index']);
 Route::get('/tarefas',[TarefaController::class,'index']);
-Route::get('/tags',[TagsController::class,'index']);
+Route::get('/tags',[TagController::class,'index']);
 Route::get('/anotacaos',[AnotacaoController::class,'index']);
 Route::get('/users',[UserController::class,'index']);

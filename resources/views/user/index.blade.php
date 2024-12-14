@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de tarefas</title>
+    <title>Lista de users</title>
 </head>
 <body>
-    <h1>Tarefas</h1>
-    @if ($tarefas->count()>0)
+    <h1>users</h1>
+    @if ($users->count()>0)
     <table>
         <thead>
             <tr>
@@ -18,15 +18,15 @@
             </tr>
         </thead>
     <tbody>
-        @foreach ($tarefas as $tarefa)
+        @foreach ($users as $user)
         <tr>
-            <td>{{$tarefa->id}}</td>
-            <td>{{$tarefa->nome}}</td>
-            <td>{{$tarefa->data}}</td>
+            <td>{{$user->id}}</td>
+            <td>{{$user->nome}}</td>
+            <td>{{$user->data}}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
 @else
-<p>Tarefas não encontradas! </p>
+<p>Users não encontrados! </p>
 @endif

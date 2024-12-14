@@ -4,29 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de tarefas</title>
+    <title>Lista de tags</title>
 </head>
 <body>
-    <h1>Tarefas</h1>
-    @if ($tarefas->count()>0)
+    <h1>Tags</h1>
+    @if ($tags->count()>0)
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
-                <th>Data</th>
             </tr>
         </thead>
     <tbody>
-        @foreach ($tarefas as $tarefa)
+        @foreach ($tags as $tag)
         <tr>
-            <td>{{$tarefa->id}}</td>
-            <td>{{$tarefa->nome}}</td>
-            <td>{{$tarefa->data}}</td>
+            <td>{{$tag->id}}</td>
+            <td>{{$tag->nome}}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
 @else
-<p>Tarefas não encontradas! </p>
+<p>Tags não encontradas! </p>
 @endif

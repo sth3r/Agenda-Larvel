@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TagController extends Controller
 {
     public function index(){
-        return view('tags', ['tags' => Tag::all()]);
+        return view('tag.index', ['tags' => Tag::all()]);
         // return response()->json(Tag::all());
     }
 
