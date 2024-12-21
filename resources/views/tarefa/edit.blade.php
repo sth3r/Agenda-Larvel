@@ -9,26 +9,22 @@
 </head>
 
 <body>
-    <h1>Editar anotacao</h1>
-    <form action="{{route('anotacaoUpdate',$anotacao->id)}}" method="POST">
+    <h1>Editar tarefa</h1>
+    <form action="{{route('tarefaUpdate',$tarefa->id)}}" method="POST">
         @csrf
         <table>
             <tr>
-                <td>Titulo:</td>
-                <td><input type="text" name="titulo" value="{{$anotacao->titulo}}"/></td>
-            </tr>
-            <tr>
-                <td>Conteudo:</td>
-                <td><textarea name="conteudo" id="" cols="30" rows="10">{{$anotacao->conteudo}}</textarea></td>
+                <td>Nome:</td>
+                <td><input type="text" name="nome" value="{{$tarefa->nome}}"/></td>
             </tr>
             <tr>
                 <td>Data:</td>
-                <td><input type="date" name="dia" value="{{$anotacao->dia}}"/></td>
+                <td><input type="date" name="data" value="{{$tarefa->data}}"/></td>
             </tr>
             <tr align="center">
                 <td colspan="2">
                     <input type="submit" value="Salvar"/>
-                    <a href="/anotacaos"><button form=cancel >Cancelar</button></a>
+                    <a href="/tarefas"><button form=cancel >Cancelar</button></a>
                 </td>
             </tr>
         </table>

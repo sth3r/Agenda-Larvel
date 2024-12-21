@@ -23,9 +23,15 @@
             <td><a href="/tarefa/{{$tarefa->id}}">{{$tarefa->id}}</a></td>
             <td>{{$tarefa->nome}}</td>
             <td>{{$tarefa->data}}</td>
+            <td>
+                {{-- <a href="{{route('delete',$anotacao->id)}} title='Deletar'">&#128465</a> --}}
+                <a href="{{route('tarefaDelete',$tarefa->id)}}" tittle='Deletar'>&#128465</a>
+                <a href="{{route('tarefaEdit',$tarefa->id)}}" tittle='Editar'>&#128497</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
+    <a href="/tarefa">&#9765;Criar</a>
 </table>
 @else
 <p>Tarefas não encontradas! </p>
