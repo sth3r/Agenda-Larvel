@@ -5,29 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anotacoes</title>
+    <title>Remover tarefa</title>
 </head>
 <body>
-    @if ($anotacao)
-        <h1>{{ $anotacao->titulo }}</h1>
-        <p>{{ $anotacao->conteudo }}</p>
-        <p>{{ $anotacao->data }}</p>
+    @if ($tarefa)
+        <h1>{{ $tarefa->nome }}</h1>
+        <p>{{ $tarefa->data }}</p>
         <table>
             <tr>
                 <td>
-                    <form action="{{ route('anotacaoRemove',$anotacao->id) }}" method='post'>
+                    <form action="{{ route('remove',$tarefa->id) }}" method='post'>
                         @csrf
                         <input type="submit" name='confirmar' value="Remover" />
                     </form>
                 </td>
                 <td>
-                    <a href="/anotacaos"><button>Cancelar</button></a>
+                    <a href="/tarefas"><button>Cancelar</button></a>
                 </td>
             </tr>
         </table>
     @else
-        <p>anotacaos não encontrados! </p>
+        <p>tarefas não encontrados! </p>
     @endif
-    <a href="/anotacaos">&#9664;Voltar</a>
+    <a href="/tarefas">&#9664;Voltar</a>
 </body>
 </html>

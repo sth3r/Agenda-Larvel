@@ -21,6 +21,10 @@
         <tr>
             <td><a href="/tag/{{$tag->id}}">{{$tag->id}}</a></td>
             <td>{{$tag->nome}}</td>
+            <td>
+                <a href="{{route('tagDelete',$tag->id)}}" tittle='Deletar'>&#128465</a>
+                <a href="{{route('tagEdit',$tag->id)}}" tittle='Editar'>&#128497</a>
+            </td>
         </tr>
         @endforeach
     </tbody>

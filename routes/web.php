@@ -29,7 +29,7 @@ Route::post('tarefa',[TarefaController::class,'store']);
 Route::get('tarefa/{id}/edit',[TarefaController::class,'edit'])->name("tarefaEdit");
 Route::post('tarefa/{id}/edit',[TarefaController::class,'update'])->name("tarefaUpdate");
 Route::get('tarefa/{id}/delete',[TarefaController::class,'delete'])->name("tarefaDelete");
-Route::post('tarefa/{id}/delete',[TarefaController::class,'remove'])->name('remove');
+Route::post('tarefa/{id}/delete',[TarefaController::class,'remove'])->name('tarefaRemove');
 
 //TAGS
 Route::get('tags',[TagController::class,'index']);
@@ -39,7 +39,7 @@ Route::post('tag',[TagController::class,'store']);
 Route::get('tag/{id}/edit',[TagController::class,'edit'])->name("tagEdit");
 Route::post('tag/{id}/edit',[TagController::class,'update'])->name("tagUpdate");
 Route::get('tag/{id}/delete',[TagController::class,'delete'])->name("tagDelete");
-Route::post('tag/{id}/delete',[TagController::class,'remove'])->name('remove');
+Route::post('tag/{id}/delete',[TagController::class,'remove'])->name('tagRemove');
 
 //ANOTACAOS
 Route::get('anotacaos',[AnotacaoController::class,'index']);
@@ -49,7 +49,7 @@ Route::post('anotacao',[AnotacaoController::class,'store']);
 Route::get('anotacao/{id}/edit',[AnotacaoController::class,'edit'])->name("anotacaoEdit");
 Route::post('anotacao/{id}/edit',[AnotacaoController::class,'update'])->name("anotacaoUpdate");
 Route::get('anotacao/{id}/delete',[AnotacaoController::class,'delete'])->name("anotacaoDelete");
-Route::post('anotacao/{id}/delete',[AnotacaoController::class,'remove'])->name('remove');
+Route::post('anotacao/{id}/delete',[AnotacaoController::class,'remove'])->name('anotacaoRemove');
 
 //USERS
 Route::get('/users',[UserController::class,'index']);

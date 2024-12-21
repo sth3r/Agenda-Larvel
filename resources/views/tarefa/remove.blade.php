@@ -14,7 +14,7 @@
         <table>
             <tr>
                 <td>
-                    <form action="{{ route('remove',$tarefa->id) }}" method='post'>
+                    <form action="{{ route('tarefaRemove',$tarefa->id) }}" method='post'>
                         @csrf
                         <input type="submit" name='confirmar' value="Remover" />
                     </form>
