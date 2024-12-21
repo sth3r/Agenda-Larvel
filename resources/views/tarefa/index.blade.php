@@ -20,7 +20,7 @@
     <tbody>
         @foreach ($tarefas as $tarefa)
         <tr>
-            <td>{{$tarefa->id}}</td>
+            <td><a href="/tarefa/{{$tarefa->id}}">{{$tarefa->id}}</a></td>
             <td>{{$tarefa->nome}}</td>
             <td>{{$tarefa->data}}</td>
         </tr>

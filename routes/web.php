@@ -37,5 +37,14 @@ Route::get('tag/{id}',[TagController::class,'show']);
 Route::get('anotacaos',[AnotacaoController::class,'index']);
 Route::get('anotacao/{id}',[AnotacaoController::class,'show']);
 
+// Route::get('anotacaos',[AnotacaoController::class,'index']);
+// Route::get('anotacao/{id}',[AnotacaoController::class,'show']);
+Route::get('anotacao',[AnotacaoController::class,'create']);
+Route::post('anotacao',[AnotacaoController::class,'store']);
+Route::get('anotacao/{id}/edit',[AnotacaoController::class,'edit'])->name("anotacaoEdit");
+Route::post('anotacao/{id}/edit',[AnotacaoController::class,'update'])->name("anotacaoUpdate");
+Route::get('anotacao/{id}/delete',[AnotacaoController::class,'delete'])->name("anotacaoDelete");
+Route::post('anotacao/{id}/delete',[AnotacaoController::class,'remove'])->name('remove');
+
 
 Route::get('/users',[UserController::class,'index']);

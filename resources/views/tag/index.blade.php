@@ -19,7 +19,7 @@
     <tbody>
         @foreach ($tags as $tag)
         <tr>
-            <td>{{$tag->id}}</td>
+            <td><a href="/tag/{{$tag->id}}">{{$tag->id}}</a></td>
             <td>{{$tag->nome}}</td>
         </tr>
         @endforeach

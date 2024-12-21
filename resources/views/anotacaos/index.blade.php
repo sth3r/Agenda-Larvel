@@ -12,6 +12,7 @@
     <table>
         <thead>
             <tr>
+                <th>id</th>
                 <th>titulo</th>
                 <th>conteudo</th>
                 <th>dia</th>
@@ -20,12 +21,19 @@
     <tbody>
         @foreach ($anotacaos as $anotacao)
         <tr>
+            <td><a href="/anotacao/{{$anotacao->id}}">{{$anotacao->id}}</a></td>
             <td>{{$anotacao->titulo}}</td>
             <td>{{$anotacao->conteudo}}</td>
             <td>{{$anotacao->dia}}</td>
+            <td>
+                {{-- <a href="{{route('delete',$anotacao->id)}} title='Deletar'">&#128465</a> --}}
+                <a href="{{route('anotacaoDelete',$anotacao->id)}}" tittle='Deletar'>&#128465</a>
+                <a href="{{route('anotacaoEdit',$anotacao->id)}}" tittle='Editar'>&#128497</a>
+            </td>
         </tr>
         @endforeach
     </tbody>
+    <a href="/anotacao">&#9765;Criar</a>
 </table>
 @else
 <p>Anotacaos não encontradas! </p>
