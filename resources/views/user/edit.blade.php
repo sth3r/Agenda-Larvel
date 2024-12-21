@@ -9,22 +9,26 @@
 </head>
 
 <body>
-    <h1>Editar tarefa</h1>
-    <form action="{{route('tarefaUpdate',$tarefa->id)}}" method="POST">
+    <h1>Editar user</h1>
+    <form action="{{route('userUpdate',$user->id)}}" method="POST">
         @csrf
         <table>
             <tr>
                 <td>Nome:</td>
-                <td><input type="text" name="nome" value="{{$tarefa->nome}}"/></td>
+                <td><input type="text" name="name" value="{{$user->name}}"/></td>
             </tr>
             <tr>
-                <td>Data:</td>
-                <td><input type="date" name="data" value="{{$tarefa->data}}"/></td>
+                <td>Email:</td>
+                <td><input type="text" name="email" value="{{$user->email}}"/></td>
+            </tr>
+            <tr>
+                <td>Senha:</td>
+                <td><input type="text" name="password" value="{{$user->password}}"/></td>
             </tr>
             <tr align="center">
                 <td colspan="2">
                     <input type="submit" value="Salvar"/>
-                    <a href="/tarefas"><button form=cancel >Cancelar</button></a>
+                    <a href="/users"><button form=cancel >Cancelar</button></a>
                 </td>
             </tr>
         </table>

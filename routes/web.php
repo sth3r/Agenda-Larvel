@@ -53,3 +53,10 @@ Route::post('anotacao/{id}/delete',[AnotacaoController::class,'remove'])->name('
 
 //USERS
 Route::get('/users',[UserController::class,'index']);
+Route::get('user/{id}',[UserController::class,'show']);
+Route::get('user',[UserController::class,'create']);
+Route::post('user',[UserController::class,'store']);
+Route::get('user/{id}/edit',[UserController::class,'edit'])->name("userEdit");
+Route::post('user/{id}/edit',[UserController::class,'update'])->name("userUpdate");
+Route::get('user/{id}/delete',[UserController::class,'delete'])->name("userDelete");
+Route::post('user/{id}/delete',[UserController::class,'remove'])->name('userRemove');

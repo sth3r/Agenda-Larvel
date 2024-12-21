@@ -1,14 +1,18 @@
-<h1>Atualizar Tarefa</h1>
-<form action="{{route('update',$tarefa->id)}}" method="POST">
+<h1>Atualizar user</h1>
+<form action="{{route('update',$user->id)}}" method="POST">
     @csrf
     <table>
         <tr>
             <td>Nome:</td>
-            <td><input type="text" name="nome" value="{{$tarefa->nome}}"/></td>
+            <td><input type="text" name="name" value="{{$user->name}}"/></td>
         </tr>
         <tr>
-            <td>Data:</td>
-            <td><input type="text" name="data" value="{{$tarefa->data}}"/></td>
+            <td>Email:</td>
+            <td><input type="text" name="email" value="{{$user->name}}"/></td>
+        </tr>
+        <tr>
+            <td>Senha:</td>
+            <td><input type="text" name="password" value="{{$user->password}}"/></td>
         </tr>
     </table>
 </form>

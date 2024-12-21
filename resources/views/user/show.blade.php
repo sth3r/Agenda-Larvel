@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarefa</title>
+    <title>user</title>
 </head>
 <body>
-    @if ($tarefa)
-        <h1>{{$tarefa->nome}}</h1>
-        <p>{{$tarefa->data}}</p>
+    @if ($user)
+        <h1>{{$user->name}}</h1>
+        <p>{{$user->email}}</p>
     @else
-        <p>Tarefas não encontradas! </p>
+        <p>users não encontrados! </p>
     @endif
-    <a href="/tarefas">&#9664;Voltar</a>
+    <a href="/users">&#9664;Voltar</a>
 </body>
 </html>
