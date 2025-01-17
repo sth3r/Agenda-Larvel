@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AnotacaoCollection;
+use App\Http\Resources\AnotacaoResource;
 use App\Models\Anotacao;
 use Illuminate\Http\Request;
 

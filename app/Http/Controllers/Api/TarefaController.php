@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TarefaCollection;
+use App\Http\Resources\TarefaResource;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 
