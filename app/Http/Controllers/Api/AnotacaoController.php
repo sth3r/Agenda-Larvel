@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AnotacaoCollection;
 use App\Models\Anotacao;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class AnotacaoController extends Controller
      */
     public function index()
     {
-        //
+        return new AnotacaoCollection(Anotacao::all());
     }
 
     /**
@@ -29,7 +30,7 @@ class AnotacaoController extends Controller
      */
     public function show(Anotacao $anotacao)
     {
-        //
+        return new AnotacaoResource($anotacao);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TarefaCollection;
 use App\Models\Tarefa;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        //
+        return new TarefaCollection(Tarefa::all());
     }
 
     /**
@@ -29,7 +30,7 @@ class TarefaController extends Controller
      */
     public function show(Tarefa $tarefa)
     {
-        //
+        return new TarefaResource($tarefa);
     }
 
     /**
