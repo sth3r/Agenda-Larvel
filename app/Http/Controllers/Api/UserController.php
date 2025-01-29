@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -23,7 +25,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            // $request->validate(["preco" => "required"]);
+            $user = $request->all([
+                "nome" => ["required"],
+                "email" => ["unique:users, email_address"],
+                "password"=> ["required", "min:8"],
+                ]);
+            // $user['email'] = $request->has('importado');
+            User::create($user);
+            return response()->json('User Criado!', 201);
+        } catch (Exception $error) {
+            $httpStatus = 500;
+            if($error instanceOf ValidationException) $httpStatus=422;
+            return response()->json($error->getMessage(),$httpStatus);
+        }
     }
 
     /**

@@ -23,7 +23,14 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tag = $request->all();
+        // $tag['importado'] = $request->has('importado');
+
+        if (Tag::create($tag)) {
+            return response()->json('Tag Criada!', 201);
+        } else {
+            return response()->json("Erro ao criar o Tag", 500);
+        }
     }
 
     /**

@@ -23,7 +23,14 @@ class AnotacaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $anotacao = $request->all();
+        // $anotacao['importado'] = $request->has('importado');
+
+        if (Anotacao::create($anotacao)) {
+            return response()->json('Anotacao Criada!', 201);
+        } else {
+            return response()->json("Erro ao criar o Anotacao", 500);
+        }
     }
 
     /**

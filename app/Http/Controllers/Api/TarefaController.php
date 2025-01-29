@@ -23,7 +23,14 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tarefa = $request->all();
+        // $tarefa['importado'] = $request->has('importado');
+
+        if (Tarefa::create($tarefa)) {
+            return response()->json('Tarefa Criada!', 201);
+        } else {
+            return response()->json("Erro ao criar o Tarefa", 500);
+        }
     }
 
     /**
