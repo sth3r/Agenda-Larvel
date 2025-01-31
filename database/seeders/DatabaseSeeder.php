@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Anotacao::factory(10)->create();
-        Tarefa::factory(10)->create();
-        Tag::factory(10)->create();
-        User::factory(10)->create();
+        // Anotacao::factory(10)->create();
+        // Tarefa::factory(10)->create();
+        // Tag::factory(10)->create();
+        User::factory(3)->create();
     }
 }

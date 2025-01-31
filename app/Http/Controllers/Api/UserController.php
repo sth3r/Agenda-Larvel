@@ -8,6 +8,7 @@ use App\Http\Resources\UserResource;
 use App\Http\Requests\UserStoredRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Resources\UserResourceCollection;
 use App\Http\Resources\UserStoredResource;
 use App\Http\Resources\UserUpdatedResource;
 use App\Models\User;
@@ -22,7 +23,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return new UserCollection(User::all());
+        return new UserResourceCollection(User::all());
     }
 
     /**
@@ -31,7 +32,8 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         try {
-            return new UserStoredResource(User::create($request->validated()));
+            return (new UserStoredResource(User::create($request->validated())))
+                ->additional(['message'=>'Usuario criado com sucesso!!!']);
         }catch(Exception $error){
             return $this->errorHandler("Erro ao criar novo User!!", $error);
         }

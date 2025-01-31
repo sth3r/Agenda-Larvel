@@ -3,16 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Hash;
 
-class UserStoreRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,16 +22,17 @@ class UserStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nome" => "required | string | max: 20",
-            "email" => "unique:users | email | email_address",
-            "password"=> "required | min:8",
+            'email' => 'required | exists:users',
+            'password' =>  'required | string'
         ];
     }
 
-    protected function passedValidation(): void
+    public function messages()
     {
-        $this->merge(['password' => Hash::make($this->input('password'))]);
+        return [
+            'email.required'=> 'O email eh obrigatorio!',
+            'email.exists' => 'email nao cadastrado!',
+            'password.required'=> 'a senha eh obrigatoria!'
+        ];
     }
-
-
 }

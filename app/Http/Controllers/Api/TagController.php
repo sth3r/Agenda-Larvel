@@ -8,6 +8,7 @@ use App\Http\Requests\TagStoreRequest;
 use App\Http\Requests\TagUpdateRequest;
 use App\Http\Resources\TagCollection;
 use App\Http\Resources\TagResource;
+use App\Http\Resources\TagResourceCollection;
 use App\Http\Resources\TagStoredResource;
 use App\Http\Resources\TagUpdatedResource;
 use App\Models\Tag;
@@ -22,7 +23,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        return new TagCollection(Tag::all());
+        return new TagResourceCollection(Tag::all());
     }
 
     /**

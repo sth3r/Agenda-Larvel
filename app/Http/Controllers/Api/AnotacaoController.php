@@ -8,6 +8,7 @@ use App\Http\Requests\AnotacaoStoreRequest;
 use App\Http\Requests\AnotacaoUpdateRequest;
 use App\Http\Resources\AnotacaoCollection;
 use App\Http\Resources\AnotacaoResource;
+use App\Http\Resources\AnotacaoResourceCollection;
 use App\Http\Resources\AnotacaoStoredResource;
 use App\Http\Resources\AnotacaoUpdatedResource;
 use App\Models\Anotacao;
@@ -22,7 +23,7 @@ class AnotacaoController extends Controller
      */
     public function index()
     {
-        return new AnotacaoCollection(Anotacao::all());
+        return new AnotacaoResourceCollection(Anotacao::all());
     }
 
     /**

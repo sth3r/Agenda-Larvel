@@ -8,6 +8,7 @@ use App\Http\Requests\TarefaStoreRequest;
 use App\Http\Requests\TarefaUpdateRequest;
 use App\Http\Resources\TarefaCollection;
 use App\Http\Resources\TarefaResource;
+use App\Http\Resources\TarefaResourceCollection;
 use App\Http\Resources\TarefaStoredResource;
 use App\Http\Resources\TarefaUpdatedResource;
 use App\Models\Tarefa;
@@ -22,7 +23,7 @@ class TarefaController extends Controller
      */
     public function index()
     {
-        return new TarefaCollection(Tarefa::all());
+        return new TarefaResourceCollection(Tarefa::all());
     }
 
     /**
