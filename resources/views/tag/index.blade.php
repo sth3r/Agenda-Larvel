@@ -28,6 +28,7 @@
         </tr>
         @endforeach
     </tbody>
+    <a href="/tag">&#9765;Criar</a>
 </table>
 @else
 <p>Tags não encontradas! </p>
