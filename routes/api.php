@@ -37,4 +37,4 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('anotacaos', AnotacaoController::class)->except(['index','show']);
     Route::apiResource('tags', TagController::class)->except(['index','show']);
     Route::apiResource('tarefa', TarefaController::class)->except(['index','show']);
-})
+});
