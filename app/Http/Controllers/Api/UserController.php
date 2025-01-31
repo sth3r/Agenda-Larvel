@@ -32,7 +32,7 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         try {
-            return (new UserStoredResource(User::create($request->validated())))
+            return (new UserResource(User::create($request->validated())))
                 ->additional(['message'=>'Usuario criado com sucesso!!!']);
         }catch(Exception $error){
             return $this->errorHandler("Erro ao criar novo User!!", $error);

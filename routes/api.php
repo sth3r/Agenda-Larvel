@@ -24,13 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::apiResource('anotacaos',AnotacaoController::class);
 Route::apiResource('tags',TagController::class);
 Route::apiResource('users',UserController::class);
 Route::apiResource('tarefas',TarefaController::class);
-
-Route::post('/login', [LoginController::class,'login'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('users', UserController::class);
@@ -38,3 +35,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('tags', TagController::class)->except(['index','show']);
     Route::apiResource('tarefa', TarefaController::class)->except(['index','show']);
 });
+
+// Route::post('/login', [LoginController::class,'login'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+
