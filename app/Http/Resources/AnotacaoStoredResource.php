@@ -2,18 +2,20 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 
-class AnotacaoStoredResource extends JsonResource
+class AnotacaoStoredResource extends AnotacaoResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
-    public function toArray(Request $request): array
+    public function withResponse(Request $request, JsonResponse $response): void
     {
-        return parent::toArray($request);
+        $response->setStatusCode(201,'Anotacao Criada!');
+    }
+
+    public function with(Request $request): array
+    {
+        return [
+            'message' => 'Anotacao criada com sucesso!!',
+        ];
     }
 }

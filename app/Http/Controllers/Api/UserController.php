@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserCollection;
 use App\Http\Resources\UserResource;
+use App\Http\Requests\UserStoredRequest;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
+use App\Http\Resources\UserStoredResource;
+use App\Http\Resources\UserUpdatedResource;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -23,22 +28,12 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
         try {
-            // $request->validate(["preco" => "required"]);
-            $user = $request->all([
-                "nome" => ["required"],
-                "email" => ["unique:users, email_address"],
-                "password"=> ["required", "min:8"],
-                ]);
-            // $user['email'] = $request->has('importado');
-            User::create($user);
-            return response()->json('User Criado!', 201);
-        } catch (Exception $error) {
-            $httpStatus = 500;
-            if($error instanceOf ValidationException) $httpStatus=422;
-            return response()->json($error->getMessage(),$httpStatus);
+            return new UserStoredResource(User::create($request->validated()));
+        }catch(Exception $error){
+            return $this->errorHandler("Erro ao criar novo User!!", $error);
         }
     }
 
@@ -53,9 +48,14 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UserUpdateRequest $request, User $user)
     {
-        //
+        try{
+            $user->update(($request->validated()));
+            return new UserUpdatedResource($user);
+        } catch(Exception $error){
+            return $this->errorHandler("Erro ao atualizar User", $error);
+        }
     }
 
     /**
@@ -63,6 +63,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        try{
+            $user->delete();
+            return (new UserResource($user))->additional(["message"=>"User removido!!!"]);
+        } catch(Exception $error){
+            return $this->errorHandler("Erro ao atualizar User", $error);
+        }
     }
 }
