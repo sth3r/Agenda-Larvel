@@ -20,20 +20,21 @@ use App\Http\Controllers\Api\UserController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::get('/user', function (Request $request) {
     return $request->user();
-});
+})->middleware('auth:sanctum');
+
 
 Route::apiResource('anotacaos',AnotacaoController::class);
-Route::apiResource('tags',TagController::class);
+Route::apiResource('tags',TagController::class)->only(['index', 'show']);
 Route::apiResource('users',UserController::class);
 Route::apiResource('tarefas',TarefaController::class);
 
 Route::middleware('auth:sanctum')->group(function(){
-    Route::apiResource('users', UserController::class);
+    Route::apiResource('users', UserController::class)->except(['store']);
     Route::apiResource('anotacaos', AnotacaoController::class)->except(['index','show']);
     Route::apiResource('tags', TagController::class)->except(['index','show']);
-    Route::apiResource('tarefa', TarefaController::class)->except(['index','show']);
+    Route::apiResource('tarefas', TarefaController::class)->except(['index','show']);
 });
 
 // Route::post('/login', [LoginController::class,'login'])->name('login');

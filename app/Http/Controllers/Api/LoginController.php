@@ -17,6 +17,7 @@ class LoginController extends Controller
                 if(! $user || ! Hash::check($request->password, $user->password))
                     throw new Exception('Senha incorreta!');
                 $response = $user->createToken($request->email)->plainTextToken;
+                return response()->json(['token'=>$response]);
             }catch(Exception $error){
                 return response()->json([
                     'erro'=>$error->getMessage()

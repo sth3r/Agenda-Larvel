@@ -22,7 +22,7 @@ class UserStoredRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nome" => "required | max: 20",
+            "name" => "required | max: 20",
             "email" => "unique:users, email_address",
             "password"=> "required", "min:8",
         ];
