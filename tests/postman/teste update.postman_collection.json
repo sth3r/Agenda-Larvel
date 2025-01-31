@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "1c5e2f0b-0afe-49e9-854a-2b88c498bf55",
+		"name": "teste update",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41193730"
+	},
+	"item": [
+		{
+			"name": "anotacao",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|XvfMwBtwDhcyunrCQ08hoCbH9HT4V941uhrUkhMFab1f5386",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"titulo\": \"aiai\",\r\n    \"conteudo\": \"socorro\",\r\n    \"dia\": \"2021-10-15 05:36:49\",\r\n    \"id\": 101\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/anotacaos/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"anotacaos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tarefa",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|XvfMwBtwDhcyunrCQ08hoCbH9HT4V941uhrUkhMFab1f5386",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"nome\": \"sadasdasdasd\",\r\n    \"data\": \"2021-10-15 05:36:49\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tarefas/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tarefas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tags",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":10,\"nome\":\"foi???.\",\"created_at\":\"2024-12-16T05:22:30.000000Z\",\"updated_at\":\"2024-12-16T05:22:30.000000Z\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tags/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tags",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
